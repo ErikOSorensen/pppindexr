@@ -10,7 +10,6 @@ eks <- function(P, Q) {
 
   log_fisher <- log( q_fisher(P,Q))
   log_eks <- rowSums(log_fisher)
-  min_eks <- min(log_eks)
   r <- exp(log_eks - min(log_eks))
   r
 }
