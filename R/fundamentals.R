@@ -14,7 +14,7 @@ p_paasche <- function(pt, pb, qt) {
   assertthat::are_equal(length(qt), length(pb))
 
   if (is.matrix(pt)) {
-    r <- rowSums(pt * qt) / rowSums( pb * qt)
+    r <- rowSums(pt * qt) / rowSums(pb * qt)
   }
   else {
     r <- sum(pt * qt)/sum(pb * qt)
