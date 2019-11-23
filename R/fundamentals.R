@@ -17,7 +17,7 @@ p_paasche <- function(pt, pb, qt) {
     r <- rowSums(pt * qt) / rowSums(pb * qt)
   }
   else {
-    r <- sum(pt * qt)/sum(pb * qt)
+    r <- sum(pt * qt) / sum(pb * qt)
   }
   r
 }
@@ -30,7 +30,7 @@ p_paasche <- function(pt, pb, qt) {
 #' @return Quantity index between current an baseline period (number or vector).
 #' @export
 q_paasche <- function(pt, qt, qb) {
-  p_paasche(qt,qb,pt)
+  p_paasche(qt, qb, pt)
 }
 
 #' Laspeyre price index.
