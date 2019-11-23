@@ -5,7 +5,8 @@ Version: 0.1.0
 Authors@R: person("Erik Ø.", "Sørensen", email="erik.sorensen@nhh.no",
   role=c("aut","cre"))
 Description: Provides the standard price and quantity indices for international
-    comparisons. 
+    comparisons.
+URL: https://github.com/ErikOSorensen/pppindexr
 License: MIT
 Encoding: UTF-8
 LazyData: true
