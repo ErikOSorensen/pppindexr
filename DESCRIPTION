@@ -1,0 +1,14 @@
+Package: pppindexr
+Type: Package
+Title: Price and Quantity Indices for International Comparisons
+Version: 0.1.0
+Authors@R: person("Erik Ø.", "Sørensen", email="erik.sorensen@nhh.no",
+  role=c("aut","cre"))
+Description: Provides the standard price and quantity indices for international
+    comparisons. 
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Imports:
+    assertthat
