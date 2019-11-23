@@ -7,6 +7,7 @@ Authors@R: person("Erik Ø.", "Sørensen", email="erik.sorensen@nhh.no",
 Description: Provides the standard price and quantity indices for international
     comparisons.
 URL: https://github.com/ErikOSorensen/pppindexr
+BugReports: https://github.com/ErikOSorensen/pppindexr/issues
 License: MIT
 Encoding: UTF-8
 LazyData: true
