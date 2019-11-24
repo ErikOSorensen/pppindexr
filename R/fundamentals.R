@@ -129,17 +129,32 @@ q_tornqvist <- function(P, Q) {
   assertthat::are_equal(ncol(P), ncol(Q))
   PQ <- P * Q
   logQ <- log(Q)
-  budget_shares <- PQ / rowSums(PQ)
+  W <- budget_shares(P,Q)
   m <- nrow(P)
   n <- ncol(P)
   r <- matrix( data=NA, nrow=m, ncol=m)
   for (i in 1:m) {
     for (j in 1:m) {
       for (k in 1:n) {
-        r[i,j] <- 0.5 * (budget_shares[k,i] + budget_share[k,j]) *
+        r[i,j] <- 0.5 * (W[k,i] + W[k,j]) *
           (logQ[k,i] - logQ[k,j])
       }
     }
   }
   exp(r)
+}
+
+#' Budget shares
+#'
+#' Returns a matrix of budget shares corresponding to prices and quantities.
+#'
+#' @param P An m x n matrix of prices (row country, column goods).
+#' @param Q An m x n matrix of quantities (row country, column goods).
+#'
+#' @return An m x n matrix of budget shares
+budget_shares <- function(P, Q) {
+  assertthat::are_equal(nrow(P), nrow(Q))
+  assertthat::are_equal(ncol(P), ncol(Q))
+  PQ <- P * Q
+  PQ / rowSums(PQ)
 }
