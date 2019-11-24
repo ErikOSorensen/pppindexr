@@ -136,8 +136,7 @@ q_tornqvist <- function(P, Q) {
   for (i in 1:m) {
     for (j in 1:m) {
       for (k in 1:n) {
-        r[i,j] <- 0.5 * (W[k,i] + W[k,j]) *
-          (logQ[k,i] - logQ[k,j])
+        r[i,j] <- 0.5 * (W[i,k] + W[j,k]) * (logQ[i,k] - logQ[j,k])
       }
     }
   }

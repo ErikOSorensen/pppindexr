@@ -25,7 +25,7 @@ to unity).
 For the Gheary Khamis index, it makes a difference whether the quantities
 are total country-numbers or if they are per capita numbers. If the quantity
 matrix is per capita, one should also supply a population vector for
-the proper weigthing. If per capita quantities are supplied, the quantity
+the proper weighting. If per capita quantities are supplied, the quantity
 index returned are also per capita.
 }
 \concept{gk ygk pgk}
