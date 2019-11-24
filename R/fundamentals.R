@@ -150,7 +150,7 @@ q_tornqvist <- function(P, Q) {
 #'
 #' @param P An m x n matrix of prices (row country, column goods).
 #' @param Q An m x n matrix of quantities (row country, column goods).
-#'
+#' @keywords internal
 #' @return An m x n matrix of budget shares
 budget_shares <- function(P, Q) {
   assertthat::are_equal(nrow(P), nrow(Q))

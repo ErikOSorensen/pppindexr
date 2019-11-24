@@ -17,3 +17,4 @@ An m x n matrix of budget shares
 \description{
 Returns a matrix of budget shares corresponding to prices and quantities.
 }
+\keyword{internal}

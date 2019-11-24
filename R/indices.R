@@ -42,7 +42,7 @@ ccd <- function(P, Q) {
 #' For the Gheary Khamis index, it makes a difference whether the quantities
 #' are total country-numbers or if they are per capita numbers. If the quantity
 #' matrix is per capita, one should also supply a population vector for
-#' the proper weigthing. If per capita quantities are supplied, the quantity
+#' the proper weighting. If per capita quantities are supplied, the quantity
 #' index returned are also per capita.
 #'
 #' @param P An m x n matrix of prices (row country, column goods).
@@ -87,8 +87,6 @@ gk <- function(P, Q, pop=NULL) {
 #'
 #' @return An m-vector of quantities.
 #' @export
-#'
-#' @examples
 ygk <-  function(P, Q, pop=NULL) {
   gk(P,Q,pop=pop)$y
 }
@@ -104,8 +102,6 @@ ygk <-  function(P, Q, pop=NULL) {
 #'
 #' @return An n-vector of prices.
 #' @export
-#'
-#' @examples
 pgk <-  function(P, Q, pop=NULL) {
   gk(P,Q,pop=pop)$pi
 }
