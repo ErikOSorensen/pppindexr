@@ -132,11 +132,11 @@ q_tornqvist <- function(P, Q) {
   W <- budget_shares(P,Q)
   m <- nrow(P)
   n <- ncol(P)
-  r <- matrix( data=NA, nrow=m, ncol=m)
+  r <- matrix( data=0, nrow=m, ncol=m)
   for (i in 1:m) {
     for (j in 1:m) {
       for (k in 1:n) {
-        r[i,j] <- 0.5 * (W[i,k] + W[j,k]) * (logQ[i,k] - logQ[j,k])
+        r[i,j] <- r[i,j] + 0.5 * (W[i,k] + W[j,k]) * (logQ[i,k] - logQ[j,k])
       }
     }
   }

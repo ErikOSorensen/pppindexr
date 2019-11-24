@@ -36,7 +36,7 @@ ccd <- function(P, Q) {
 #' Gheary Khamis world prices and quantity index
 #'
 #' Calculates the Gheary Khamis "world prices" and the corresponding
-#' quantity index (normalized by the prices of the last good beting set
+#' quantity index (normalized by the prices of the last good being set
 #' to unity).
 #'
 #' For the Gheary Khamis index, it makes a difference whether the quantities
