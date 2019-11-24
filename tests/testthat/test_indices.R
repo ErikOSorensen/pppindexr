@@ -8,20 +8,18 @@ Q <- matrix(runif(n*m),ncol=n)
 
 test_that("GK output conforms", {
   expect_is(gk(P,Q), "list")
-  expect_is(gk(P,Q)$p, "numeric")
-  expect_is(gk(P,Q)$y, "numeric")
-  expect_identical(length(gk(P,Q)$y), nrow(Q))
-  expect_identical(length(gk(P,Q)$p), ncol(Q))
+  expect_vector(gk(P,Q)$p, size=n)
+  expect_vector(gk(P,Q)$y, size=m)
 })
 
 test_that("EKS output conforms", {
   expect_is(eks(P,Q), "numeric")
-  expect_identical(length(eks(P,Q)), nrow(Q))
+  expect_vector(eks(P,Q), size=m)
 })
 
 test_that("CCD output conforms", {
   expect_is(ccd(P,Q), "numeric")
-  expect_identical(length(ccd(P,Q)), nrow(Q))
+  expect_vector(ccd(P,Q), size=m)
 })
 
 test_that("GK homogeneous", {
