@@ -18,7 +18,7 @@ A list with two elements: pi, an n-vector of prices and y, an m-vector of income
 }
 \description{
 Calculates the Gheary Khamis "world prices" and the corresponding
-quantity index (normalized by the prices of the last good beting set
+quantity index (normalized by the prices of the last good being set
 to unity).
 }
 \details{
