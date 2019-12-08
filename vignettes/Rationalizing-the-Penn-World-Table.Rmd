@@ -63,9 +63,27 @@ Neary2004 %>% select(country, eks, ccd, gk, gk_pop) %>% knitr::kable(digits=3)
 ```
 
 Inspecting the table, the `eks`, the `ccd`, and the `gk` columns replicate
-exactly the corresponding columns in Table 1 of Neary (2004). This means
+exactly the corresponding columns in Table 1 of Neary (2004), 
+The population weighted Geary Khamis (`gk_pop`) numbers are slightly different
+from the ones reported by Neary (`gk`). This means
 that Neary calculated Geary-Khamis quantities without population weighting,
-which is clearly contrary to standard practice. The population weighted Geary Khamis
-numbers are slightly different.
+which I believe is contrary to standard practice - it means that subdividing gdp by 
+region within a country (with uniform within-country prices) will lead
+to different world prices, and hence also different real income indices. 
+
+I also show how to calculate the world prices:
+```{r}
+prices <- tibble(good_number = 1:11,
+                 p_gk = pgk(P,Q),
+                 p_gk_pop = pgk(P,Q, pop=Neary2004$pop1980))
+prices %>%  knitr::kable(digits=3)
+```
+
+
+# References
+- Peter J. Neary (2004). "Rationalizing the
+  Penn World Table: True Multilateral Indices for International Comparisons
+  of Real Income." *American Economic Review*, 94 (5): 1411-1428.
+  [https://www.aeaweb.org/articles?id=10.1257/0002828043052286]
 
 

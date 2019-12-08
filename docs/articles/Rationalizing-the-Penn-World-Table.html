@@ -111,10 +111,10 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">P &lt;-<span class="st"> </span>Neary2004 <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(p1<span class="op">:</span>p11) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span>()</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">Q &lt;-<span class="st"> </span>Neary2004 <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(q1<span class="op">:</span>q11) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span>()</a></code></pre></div>
 <p>Then I add the indices to the Neary2004 dataset. I enter two different Geary-Khamis numbers: one with and one without weighting by population size.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">Neary2004<span class="op">$</span>eks =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/pppindexr/man/eks.html">eks</a></span>(P,Q)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">Neary2004<span class="op">$</span>ccd =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/pppindexr/man/ccd.html">ccd</a></span>(P,Q)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">Neary2004<span class="op">$</span>gk =<span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/pppindexr/man/ygk.html">ygk</a></span>(P,Q)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">Neary2004<span class="op">$</span>gk_pop =<span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/pppindexr/man/ygk.html">ygk</a></span>(P,Q, <span class="dt">pop=</span>Neary2004<span class="op">$</span>pop1980)</a>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">Neary2004<span class="op">$</span>eks =<span class="st"> </span><span class="kw"><a href="../reference/eks.html">eks</a></span>(P,Q)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">Neary2004<span class="op">$</span>ccd =<span class="st"> </span><span class="kw"><a href="../reference/ccd.html">ccd</a></span>(P,Q)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">Neary2004<span class="op">$</span>gk =<span class="st">  </span><span class="kw"><a href="../reference/ygk.html">ygk</a></span>(P,Q)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">Neary2004<span class="op">$</span>gk_pop =<span class="st">  </span><span class="kw"><a href="../reference/ygk.html">ygk</a></span>(P,Q, <span class="dt">pop=</span>Neary2004<span class="op">$</span>pop1980)</a>
 <a class="sourceLine" id="cb3-5" data-line-number="5">Neary2004<span class="op">$</span>gk =<span class="st"> </span>Neary2004<span class="op">$</span>gk<span class="op">/</span>Neary2004<span class="op">$</span>gk[<span class="dv">60</span>]</a>
 <a class="sourceLine" id="cb3-6" data-line-number="6">Neary2004<span class="op">$</span>gk_pop =<span class="st"> </span>Neary2004<span class="op">$</span>gk_pop<span class="op">/</span>Neary2004<span class="op">$</span>gk_pop[<span class="dv">60</span>]</a></code></pre></div>
 <p>Now I list the data to compare it to Table 1 of Neary:</p>
@@ -550,7 +550,83 @@
 </tr>
 </tbody>
 </table>
-<p>Inspecting the table, the <code>eks</code>, the <code>ccd</code>, and the <code>gk</code> columns replicate exactly the corresponding columns in Table 1 of Neary (2004). This means that Neary calculated Geary-Khamis quantities without population weighting, which is clearly contrary to standard practice. The population weighted Geary Khamis numbers are slightly different.</p>
+<p>Inspecting the table, the <code>eks</code>, the <code>ccd</code>, and the <code>gk</code> columns replicate exactly the corresponding columns in Table 1 of Neary (2004), The population weighted Geary Khamis (<code>gk_pop</code>) numbers are slightly different from the ones reported by Neary (<code>gk</code>). This means that Neary calculated Geary-Khamis quantities without population weighting, which I believe is contrary to standard practice - it means that subdividing gdp by region within a country (with uniform within-country prices) will lead to different world prices, and hence also different real income indices.</p>
+<p>I also show how to calculate the world prices:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">prices &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">good_number =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">11</span>,</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">                 <span class="dt">p_gk =</span> <span class="kw"><a href="../reference/pgk.html">pgk</a></span>(P,Q),</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">                 <span class="dt">p_gk_pop =</span> <span class="kw"><a href="../reference/pgk.html">pgk</a></span>(P,Q, <span class="dt">pop=</span>Neary2004<span class="op">$</span>pop1980))</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">prices <span class="op">%&gt;%</span><span class="st">  </span>knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>(<span class="dt">digits=</span><span class="dv">3</span>)</a></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="right">good_number</th>
+<th align="right">p_gk</th>
+<th align="right">p_gk_pop</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">1.452</td>
+<td align="right">1.303</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">1.432</td>
+<td align="right">1.244</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">1.427</td>
+<td align="right">1.302</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">1.439</td>
+<td align="right">1.307</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">0.971</td>
+<td align="right">0.961</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">1.769</td>
+<td align="right">1.428</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">1.383</td>
+<td align="right">1.245</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">0.669</td>
+<td align="right">0.724</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">1.472</td>
+<td align="right">1.227</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">0.930</td>
+<td align="right">0.932</td>
+</tr>
+<tr class="odd">
+<td align="right">11</td>
+<td align="right">1.000</td>
+<td align="right">1.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="references" class="section level1">
+<h1 class="hasAnchor">
+<a href="#references" class="anchor"></a>References</h1>
+<ul>
+<li>Peter J. Neary (2004). “Rationalizing the Penn World Table: True Multilateral Indices for International Comparisons of Real Income.” <em>American Economic Review</em>, 94 (5): 1411-1428. [<a href="https://www.aeaweb.org/articles?id=10.1257/0002828043052286" class="uri">https://www.aeaweb.org/articles?id=10.1257/0002828043052286</a>]</li>
+</ul>
 </div>
   </div>
 
@@ -561,6 +637,7 @@
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#the-data-and-implied-indices-">The data and implied indices.</a></li>
+      <li><a href="#references">References</a></li>
       </ul>
 </div>
       </div>
