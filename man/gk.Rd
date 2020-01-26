@@ -7,9 +7,9 @@
 gk(P, Q, pop = NULL)
 }
 \arguments{
-\item{P}{An m x n matrix of prices (row country, column goods).}
+\item{P}{An m x n matrix (or dataframe) of prices (row country, column goods).}
 
-\item{Q}{An m x n matrix of quantities (row country, column goods).}
+\item{Q}{An m x n matrix (or dataframe) of quantities (row country, column goods).}
 
 \item{pop}{Optional m-vector of population numbers (if Q is per capita).}
 }

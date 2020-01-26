@@ -7,9 +7,9 @@
 eks(P, Q)
 }
 \arguments{
-\item{P}{An m x n matrix of prices (row country, column goods).}
+\item{P}{An m x n matrix (or dataframe) of prices (row country, column goods).}
 
-\item{Q}{An m x n matrix of quantities (row country, column goods).}
+\item{Q}{An m x n matrix (or dataframe) of quantities (row country, column goods).}
 }
 \value{
 An m-vector of income (relative to minimum income).

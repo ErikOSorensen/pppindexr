@@ -1,10 +1,12 @@
 #' EKS quantity index
 #'
-#' @param P An m x n matrix of prices (row country, column goods).
-#' @param Q An m x n matrix of quantities (row country, column goods).
+#' @param P An m x n matrix (or dataframe) of prices (row country, column goods).
+#' @param Q An m x n matrix (or dataframe) of quantities (row country, column goods).
 #' @return An m-vector of income (relative to minimum income).
 #' @export
 eks <- function(P, Q) {
+  P <- as.matrix(P)
+  Q <- as.matrix(Q)
   assertthat::are_equal(nrow(P), nrow(Q))
   assertthat::are_equal(ncol(P), ncol(Q))
   m <- nrow(P)
@@ -17,11 +19,13 @@ eks <- function(P, Q) {
 
 #' CCD (Caves, Christensen, and Diewert) index
 #'
-#' @param P An m x n matrix of prices (row country, column goods).
-#' @param Q An m x n matrix of quantities (row country, column goods).
+#' @param P An m x n matrix (or dataframe) of prices (row country, column goods).
+#' @param Q An m x n matrix (or dataframe) of quantities (row country, column goods).
 #' @return An m-vector of income (relative to minimum income).
 #' @export
 ccd <- function(P, Q) {
+  P <- as.matrix(P)
+  Q <- as.matrix(Q)
   assertthat::are_equal(nrow(P), nrow(Q))
   assertthat::are_equal(ncol(P), ncol(Q))
   m <- nrow(P)
@@ -45,8 +49,8 @@ ccd <- function(P, Q) {
 #' the proper weighting. If per capita quantities are supplied, the quantity
 #' index returned are also per capita.
 #'
-#' @param P An m x n matrix of prices (row country, column goods).
-#' @param Q An m x n matrix of quantities (row country, column goods).
+#' @param P An m x n matrix (or dataframe) of prices (row country, column goods).
+#' @param Q An m x n matrix (or dataframe) of quantities (row country, column goods).
 #' @param pop Optional m-vector of population numbers (if Q is per capita).
 #'
 #' @return A list with two elements: pi, an n-vector of prices and y, an m-vector of incomes.
@@ -54,6 +58,8 @@ ccd <- function(P, Q) {
 #' @family gk ygk pgk
 #' @export
 gk <- function(P, Q, pop=NULL) {
+  P <- as.matrix(P)
+  Q <- as.matrix(Q)
   assertthat::are_equal(nrow(P), nrow(Q))
   assertthat::are_equal(ncol(P), ncol(Q))
   m <- nrow(P)  # number of countries
@@ -81,8 +87,8 @@ gk <- function(P, Q, pop=NULL) {
 #' This is a convenience function, which returns only the quantity
 #' index vector. Calls \code{\link{gk}} and returns only the index.
 #'
-#' @param P An m x n matrix of prices (row country, column goods).
-#' @param Q An m x n matrix of quantities (row country, column goods).
+#' @param P An m x n matrix (or dataframe) of prices (row country, column goods).
+#' @param Q An m x n matrix (or dataframe) of quantities (row country, column goods).
 #' @param pop Optional m-vector of population numbers (if Q is per capita).
 #'
 #' @return An m-vector of quantities.
@@ -96,8 +102,8 @@ ygk <-  function(P, Q, pop=NULL) {
 #' This is a convenience function, which returns just the world price
 #' vector. Calls \code{\link{gk}} and returns only the prices.
 #'
-#' @param P An m x n matrix of prices (row country, column goods).
-#' @param Q An m x n matrix of quantities (row country, column goods).
+#' @param P An m x n matrix (or dataframe) of prices (row country, column goods).
+#' @param Q An m x n matrix (or dataframe) of quantities (row country, column goods).
 #' @param pop Optional m-vector of population numbers (if Q is per capita).
 #'
 #' @return An n-vector of prices.

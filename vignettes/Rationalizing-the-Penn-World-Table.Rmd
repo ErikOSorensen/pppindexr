@@ -35,13 +35,13 @@ to prices and "quantites" (expenditure at US prices), there are country names an
 population, all for the ICP baseline year 1980. 
 
 I can use the implemented quantity index functions to add the indices
-to the data. I scale all observations in the minimum (Egypt), the same
+to the data. I scale all observations in the minimum (Ethiopia), the same
 way that Geary does for his Table 1 and Figure 1.
 
-First I extract the price and quantity matrices:
+First I extract the price and quantity matrices (or, in fact, dataframes):
 ```{r}
-P <- Neary2004 %>% dplyr::select(p1:p11) %>% as.matrix()
-Q <- Neary2004 %>% dplyr::select(q1:q11) %>% as.matrix()
+P <- Neary2004 %>% dplyr::select(p1:p11)
+Q <- Neary2004 %>% dplyr::select(q1:q11)
 ```
 
 Then I add the indices to the Neary2004 dataset. I enter two different
