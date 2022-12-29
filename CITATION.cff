@@ -8,7 +8,7 @@ message: 'To cite package "pppindexr" in publications use:'
 type: software
 license: MIT
 title: 'pppindexr: Price and Quantity Indices for International Comparisons'
-version: 0.0.0.9000
+version: 0.0.1
 abstract: Calculate the most popular ways to compare real incomes across countries,
   the Geary-Khamis index (real income at international prices, including the reference
   price vector), the Eltetö, Köves and Szulc index (EKS), and the multilateral translog
