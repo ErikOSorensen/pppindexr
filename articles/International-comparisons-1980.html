@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">pppindexr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,7 +79,7 @@ Penn World Table (PWT). Neary proposes an improvement on the PWT use of
 the Geary-Khamis method for calculating real income. I use Neary’s data
 to illustrate how to use the functions I provide.</p>
 <div class="section level2">
-<h2 id="the-data-and-implied-indices-">The data and implied indices.<a class="anchor" aria-label="anchor" href="#the-data-and-implied-indices-"></a>
+<h2 id="the-data-and-implied-indices">The data and implied indices<a class="anchor" aria-label="anchor" href="#the-data-and-implied-indices"></a>
 </h2>
 <p>Neary uses a set of 11 goods for 60 countries. I have assembled his
 data into the <code>Neary2004</code> data set available with the
@@ -88,7 +88,7 @@ data into the <code>Neary2004</code> data set available with the
 for the ICP baseline year 1980.</p>
 <p>I can use the implemented quantity index functions to add the indices
 to the data. I scale all observations in the minimum (Ethiopia), the
-same way that Geary does for his Table 1 and Figure 1.</p>
+same way that Neary does for his Table 1 and Figure 1.</p>
 <p>First I extract the price and quantity matrices (or, in fact,
 dataframes):</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">

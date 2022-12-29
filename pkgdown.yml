@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   International-comparisons-1980: International-comparisons-1980.html
-last_built: 2022-12-29T13:27Z
+last_built: 2022-12-29T13:46Z
 urls:
   reference: https://erikosorensen.github.io/pppindexr/reference
   article: https://erikosorensen.github.io/pppindexr/articles
