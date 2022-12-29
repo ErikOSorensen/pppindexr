@@ -26,7 +26,8 @@ Neary proposes an improvement on the PWT use of the Geary-Khamis method for
 calculating real income. I use Neary's data to illustrate how to use the 
 functions I provide.
 
-## The data and implied indices.
+## The data and implied indices
+
 Neary uses a set of 11 goods for 60 countries. I have assembled his data
 into the `Neary2004` data set available with the `pppindexr` package. In addition
 to prices and "quantites" (expenditure at US prices), there are country names and
@@ -34,19 +35,20 @@ population, all for the ICP baseline year 1980.
 
 I can use the implemented quantity index functions to add the indices
 to the data. I scale all observations in the minimum (Ethiopia), the same
-way that Geary does for his Table 1 and Figure 1.
+way that Neary does for his Table 1 and Figure 1.
 
 First I extract the price and quantity matrices (or, in fact, dataframes):
+
 ```{r}
 P <- Neary2004[, c("p1","p2","p3","p4","p5","p6","p7","p8","p9","p10","p11")]
 Q <- Neary2004[, c("q1","q2","q3","q4","q5","q6","q7","q8","q9","q10","q11")]
-
 ```
 
 
 Then I add the indices to the Neary2004 dataset. I enter two different
 Geary-Khamis numbers: one with and one without weighting by population
 size.
+
 ```{r}
 Neary2004$eks = eks(P,Q)
 Neary2004$ccd = ccd(P,Q)
