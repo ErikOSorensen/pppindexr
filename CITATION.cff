@@ -12,7 +12,8 @@ version: 0.0.0.9000
 abstract: Calculate the most popular ways to compare real incomes across countries,
   the Geary-Khamis index (real income at international prices, including the reference
   price vector), the Eltetö, Köves and Szulc index (EKS), and the multilateral translog
-  price indexes by Caves, Christensen, and Diewert (CCD).
+  price indexes by Caves, Christensen, and Diewert (CCD). Also provides helper functions
+  for ordinary price and quantity indices.
 authors:
 - family-names: Sørensen
   given-names: Erik Ø.
@@ -24,6 +25,58 @@ contact:
   email: erik.sorensen@nhh.no
   orcid: https://orcid.org/0000-0002-7155-4188
 references:
+- type: software
+  title: knitr
+  abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
+  notes: Suggests
+  url: https://yihui.org/knitr/
+  repository: https://CRAN.R-project.org/package=knitr
+  authors:
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  year: '2022'
+- type: software
+  title: rmarkdown
+  abstract: 'rmarkdown: Dynamic Documents for R'
+  notes: Suggests
+  url: https://pkgs.rstudio.com/rmarkdown/
+  repository: https://CRAN.R-project.org/package=rmarkdown
+  authors:
+  - family-names: Allaire
+    given-names: JJ
+    email: jj@rstudio.com
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  - family-names: McPherson
+    given-names: Jonathan
+    email: jonathan@rstudio.com
+  - family-names: Luraschi
+    given-names: Javier
+    email: javier@rstudio.com
+  - family-names: Ushey
+    given-names: Kevin
+    email: kevin@rstudio.com
+  - family-names: Atkins
+    given-names: Aron
+    email: aron@rstudio.com
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  - family-names: Cheng
+    given-names: Joe
+    email: joe@rstudio.com
+  - family-names: Chang
+    given-names: Winston
+    email: winston@rstudio.com
+  - family-names: Iannone
+    given-names: Richard
+    email: rich@rstudio.com
+    orcid: https://orcid.org/0000-0003-3925-190X
+  year: '2022'
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'
