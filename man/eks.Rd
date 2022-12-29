@@ -17,3 +17,8 @@ An m-vector of income (relative to minimum income).
 \description{
 EKS quantity index
 }
+\examples{
+P <- matrix(1:6, ncol = 2)
+Q <- matrix(2:7, ncol = n)
+eks(P, Q)
+}

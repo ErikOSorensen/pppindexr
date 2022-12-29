@@ -21,3 +21,10 @@ The Laspeyre price index calculated as
 \deqn{ \frac{\sum_i p^t_i q^b_t}{\sum_i p^b_i q^b_i}.}
 Arguments can either be vectors or matrices.
 }
+\examples{
+Pt <- matrix(1:6, ncol = 2)
+Pb <- Pt*0.7
+Qb <- matrix(2:7, ncol = 2)
+p_laspeyre(Pt, Pb, Qt)
+p_laspeyre(Pt[1,], Pb[1,], Qt[1,])
+}

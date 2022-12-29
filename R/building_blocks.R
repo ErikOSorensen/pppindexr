@@ -9,6 +9,14 @@
 #' @param qt A n-vector (or n x n matrix) of quantities in the current period.
 #' @return Price index between current an baseline period (number or vector).
 #' @export
+#'
+#' @examples
+#' Pt <- matrix(1:6, ncol = 2)
+#' Pb <- Pt*0.7
+#' Qt <- matrix(2:7, ncol = 2)
+#' p_paasche(Pt, Pb, Qt)
+#' p_paasche(Pt[1,], Pb[1,], Qt[1,])
+#'
 p_paasche <- function(pt, pb, qt) {
   assertthat::are_equal(length(pt), length(pb))
   assertthat::are_equal(length(qt), length(pb))
@@ -29,6 +37,13 @@ p_paasche <- function(pt, pb, qt) {
 #' @param qb A n-vector (or m x n matrix) of quantities in the baseline period.
 #' @return Quantity index between current an baseline period (number or vector).
 #' @export
+#'
+#' @examples
+#' Pt <- matrix(1:6, ncol = 2)
+#' Qt <- matrix(2:7, ncol = 2)
+#' Qb <- Qt*1.2
+#' q_paasche(Pt, Qt, Qb)
+#' q_paasche(Pt[1,], Qt[1,], Qb[1,])
 q_paasche <- function(pt, qt, qb) {
   p_paasche(qt, qb, pt)
 }
@@ -44,6 +59,13 @@ q_paasche <- function(pt, qt, qb) {
 #' @param qb A n-vector (or m x n matrix) of quantities in the baseline period.
 #' @return Price index between current an baseline period (number or vector).
 #' @export
+#'
+#' @examples
+#' Pt <- matrix(1:6, ncol = 2)
+#' Pb <- Pt*0.7
+#' Qb <- matrix(2:7, ncol = 2)
+#' p_laspeyre(Pt, Pb, Qt)
+#' p_laspeyre(Pt[1,], Pb[1,], Qt[1,])
 p_laspeyre <- function(pt, pb, qb) {
   assertthat::are_equal(length(pt), length(pb))
   assertthat::are_equal(length(qb), length(pt))
@@ -67,6 +89,13 @@ p_laspeyre <- function(pt, pb, qb) {
 #' @param qb A n-vector (or m x n matrix) of quantities in the baseline period.
 #' @return Price index between current an baseline period (number or vector).
 #' @export
+#'
+#' @examples
+#' Pb <- matrix(1:6, ncol = 2)
+#' Qb <- matrix(2:7, ncol = 2)
+#' Qt <- Qb * 1.2
+#' p_laspeyre(Pb, Qt, Qb)
+#' p_laspeyre(Pb[1,], Qt[1,], Qb[1,])
 q_laspeyre <- function(pb, qt, qb) {
   p_laspeyre( qt, qb, pb)
 }
@@ -87,6 +116,11 @@ q_laspeyre <- function(pb, qt, qb) {
 #' @param Q An m x n matrix of quantities (row country, column goods).
 #' @return An m x m matrix of country pair comparisons.
 #' @export
+#'
+#' @examples
+#' Pt <- matrix(1:6, ncol = 2)
+#' Qt <- matrix(2:7, ncol = 2)
+#' p_fisher(Pt,Qt)
 p_fisher <- function(P, Q) {
   assertthat::are_equal(nrow(P), nrow(Q))
   assertthat::are_equal(ncol(P), ncol(Q))
@@ -112,6 +146,11 @@ p_fisher <- function(P, Q) {
 #' @param Q An m x n matrix of quantities (row country, column goods).
 #' @return an m x m matrix of country pair comparisons.
 #' @export
+#'
+#' @examples
+#' Pt <- matrix(1:6, ncol = 2)
+#' Qt <- matrix(2:7, ncol = 2)
+#' q_fisher(Pt,Qt)
 q_fisher <- function(P, Q) {
   p_fisher(Q,P)
 }
@@ -124,10 +163,14 @@ q_fisher <- function(P, Q) {
 #' @param Q An m x n matrix of quantities (row country, column goods).
 #' @return an m x m matrix of country pair comparisons.
 #' @export
+#'
+#' @examples
+#' Pt <- matrix(1:6, ncol = 2)
+#' Qt <- matrix(2:7, ncol = 2)
+#' q_tornqvist(Pt,Qt)
 q_tornqvist <- function(P, Q) {
   assertthat::are_equal(nrow(P), nrow(Q))
   assertthat::are_equal(ncol(P), ncol(Q))
-  PQ <- P * Q
   logQ <- log(Q)
   W <- budget_shares(P,Q)
   m <- nrow(P)

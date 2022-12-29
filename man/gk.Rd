@@ -28,4 +28,10 @@ matrix is per capita, one should also supply a population vector for
 the proper weighting. If per capita quantities are supplied, the quantity
 index returned are also per capita.
 }
+\examples{
+P <- matrix(1:6, ncol = 2)
+Q <- matrix(2:7, ncol = n)
+gk(P, Q)
+
+}
 \concept{gk ygk pgk}

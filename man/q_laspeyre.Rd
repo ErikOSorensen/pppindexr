@@ -21,3 +21,10 @@ The Laspeyre quantity index is calculated as
 \deqn{ \frac{\sum_i q^t_i p^b_t}{\sum_i q^b_i p^b_i}.}
 Arguments can either be vectors or matrices.
 }
+\examples{
+Pb <- matrix(1:6, ncol = 2)
+Qb <- matrix(2:7, ncol = 2)
+Qt <- Qb * 1.2
+p_laspeyre(Pb, Qt, Qb)
+p_laspeyre(Pb[1,], Qt[1,], Qb[1,])
+}

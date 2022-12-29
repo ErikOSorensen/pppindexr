@@ -20,3 +20,8 @@ An n-vector of prices.
 This is a convenience function, which returns just the world price
 vector. Calls \code{\link{gk}} and returns only the prices.
 }
+\examples{
+P <- matrix(1:6, ncol = 2)
+Q <- matrix(2:7, ncol = n)
+pgk(P, Q)
+}

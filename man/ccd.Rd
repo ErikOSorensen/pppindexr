@@ -17,3 +17,8 @@ An m-vector of income (relative to minimum income).
 \description{
 CCD (Caves, Christensen, and Diewert) index
 }
+\examples{
+P <- matrix(1:6, ncol = 2)
+Q <- matrix(2:7, ncol = n)
+ccd(P, Q)
+}

@@ -19,3 +19,10 @@ Quantity index between current an baseline period (number or vector).
 \description{
 Paasche quantity index.
 }
+\examples{
+Pt <- matrix(1:6, ncol = 2)
+Qt <- matrix(2:7, ncol = 2)
+Qb <- Qt*1.2
+q_paasche(Pt, Qt, Qb)
+q_paasche(Pt[1,], Qt[1,], Qb[1,])
+}

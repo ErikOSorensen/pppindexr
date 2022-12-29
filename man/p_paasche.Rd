@@ -21,3 +21,11 @@ The Paasche price index is calculated as
 \deqn{ \frac{\sum_i p^t_i q^t_t}{\sum_i p^b_i q^t_i}.}
 Arguments can either be vectors or matrices.
 }
+\examples{
+Pt <- matrix(1:6, ncol = 2)
+Pb <- Pt*0.7
+Qt <- matrix(2:7, ncol = 2)
+p_paasche(Pt, Pb, Qt)
+p_paasche(Pt[1,], Pb[1,], Qt[1,])
+
+}

@@ -4,7 +4,7 @@
 \alias{ygk}
 \title{Geary Khamis quantity index}
 \usage{
-ygk(P, Q, pop = NULL)
+ygk(P, Q, pop = NULL, min_scale = FALSE)
 }
 \arguments{
 \item{P}{An m x n matrix (or dataframe) of prices (row country, column goods).}
@@ -12,6 +12,8 @@ ygk(P, Q, pop = NULL)
 \item{Q}{An m x n matrix (or dataframe) of quantities (row country, column goods).}
 
 \item{pop}{Optional m-vector of population numbers (if Q is per capita).}
+
+\item{min_scale}{Should real income be scaled in units relative to least income country?}
 }
 \value{
 An m-vector of quantities.
@@ -19,4 +21,10 @@ An m-vector of quantities.
 \description{
 This is a convenience function, which returns only the quantity
 index vector. Calls \code{\link{gk}} and returns only the index.
+}
+\examples{
+P <- matrix(1:6, ncol = 2)
+Q <- matrix(2:7, ncol = n)
+ygk(P, Q)
+ygk(P, Q, min_scale=TRUE)
 }
