@@ -1,0 +1,85 @@
+---
+title: "International real income comparisons"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{International real income comparisons}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(pppindexr)
+```
+
+
+Peter Neary published an important paper in the AER (2004) comparing
+different approaches to calculating real income indices using the 1980 International
+Comparison Project (ICP) data  -- the same data used in the Penn World Table (PWT). 
+Neary proposes an improvement on the PWT use of the Geary-Khamis method for 
+calculating real income. I use Neary's data to illustrate how to use the 
+functions I provide.
+
+## The data and implied indices.
+Neary uses a set of 11 goods for 60 countries. I have assembled his data
+into the `Neary2004` data set available with the `pppindexr` package. In addition
+to prices and "quantites" (expenditure at US prices), there are country names and
+population, all for the ICP baseline year 1980. 
+
+I can use the implemented quantity index functions to add the indices
+to the data. I scale all observations in the minimum (Ethiopia), the same
+way that Geary does for his Table 1 and Figure 1.
+
+First I extract the price and quantity matrices (or, in fact, dataframes):
+```{r}
+P <- Neary2004[, c("p1","p2","p3","p4","p5","p6","p7","p8","p9","p10","p11")]
+Q <- Neary2004[, c("q1","q2","q3","q4","q5","q6","q7","q8","q9","q10","q11")]
+
+```
+
+
+Then I add the indices to the Neary2004 dataset. I enter two different
+Geary-Khamis numbers: one with and one without weighting by population
+size.
+```{r}
+Neary2004$eks = eks(P,Q)
+Neary2004$ccd = ccd(P,Q)
+Neary2004$gk =  ygk(P,Q, min_scale = TRUE)
+Neary2004$gk_pop =  ygk(P,Q, pop=Neary2004$pop1980, min_scale = TRUE)
+```
+
+Now I list the data to compare it to Table 1 of Neary:
+
+```{r}
+Neary2004[,c("country","eks","ccd","gk","gk_pop")] |> knitr::kable(digits=3)
+```
+
+Inspecting the table, the `eks`, the `ccd`, and the `gk` columns replicate
+exactly the corresponding columns in Table 1 of Neary (2004), 
+The population weighted Geary Khamis (`gk_pop`) numbers are slightly different
+from the ones reported by Neary (`gk`). This means
+that Neary calculated Geary-Khamis quantities without population weighting,
+which I believe is contrary to standard practice - it means that subdividing gdp by 
+region within a country (with uniform within-country prices) will lead
+to different world prices, and hence also different real income indices. 
+
+The Geary Khamis world prices are calculated as follows:
+```{r}
+prices <- data.frame(N = 1:11,
+                 p_gk = pgk(P,Q),
+                 p_gk_pop = pgk(P,Q, pop=Neary2004$pop1980))
+prices |>  knitr::kable(digits=3)
+```
+
+
+## References
+- Peter J. Neary (2004). "Rationalizing the
+  Penn World Table: True Multilateral Indices for International Comparisons
+  of Real Income." *American Economic Review*, 94 (5): 1411-1428.
+  [https://www.aeaweb.org/articles?id=10.1257/0002828043052286]

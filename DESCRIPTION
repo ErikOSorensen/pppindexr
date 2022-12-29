@@ -8,12 +8,15 @@ Description: Calculate the most popular ways to compare real incomes across
   countries, the Geary-Khamis index (real income at international prices, 
   including the reference price vector), the Eltetö, Köves and Szulc index 
   (EKS), and the multilateral translog price indexes by Caves, Christensen,
-  and Diewert (CCD).
+  and Diewert (CCD). Also provides helper functions for ordinary price and 
+  quantity indices.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Suggests: 
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports: 
@@ -21,3 +24,4 @@ Imports:
 Depends: 
     R (>= 2.10)
 LazyData: true
+VignetteBuilder: knitr

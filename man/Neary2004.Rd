@@ -34,11 +34,13 @@ A data frame with 60 rows and 24 variables:
 }
 }
 \source{
-From the paper Neary, J Peter. 2004. "Rationalizing the
-Penn World Table: True Multilateral Indices for International Comparisons
-of Real Income." American Economic Review, 94 (5): 1411-1428.
-\url{https://www.aeaweb.org/articles?id=10.1257/0002828043052286}
-Data collected at \url{http://users.ox.ac.uk/~econ0211/gaia/gaia.htm}
+Neary, J. Peter. Replication data for: Rationalizing the Penn World Table:
+True Multilateral Indices for International Comparisons of Real Income.
+Nashville, TN: American Economic Association (publisher), 2004.
+Ann Arbor, MI: Inter-university Consortium for Political and Social Research (distributor),
+2019-12-06. https://doi.org/10.3886/E116031V1
+The data are licensed Creative Commons Attribution 4.0 International Public License
+(https://creativecommons.org/licenses/by/4.0/).
 }
 \usage{
 Neary2004
