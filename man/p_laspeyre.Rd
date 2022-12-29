@@ -25,6 +25,6 @@ Arguments can either be vectors or matrices.
 Pt <- matrix(1:6, ncol = 2)
 Pb <- Pt*0.7
 Qb <- matrix(2:7, ncol = 2)
-p_laspeyre(Pt, Pb, Qt)
-p_laspeyre(Pt[1,], Pb[1,], Qt[1,])
+p_laspeyre(Pt, Pb, Qb)
+p_laspeyre(Pt[1,], Pb[1,], Qb[1,])
 }

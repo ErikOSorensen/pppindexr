@@ -24,7 +24,7 @@ index vector. Calls \code{\link{gk}} and returns only the index.
 }
 \examples{
 P <- matrix(1:6, ncol = 2)
-Q <- matrix(2:7, ncol = n)
+Q <- matrix(2:7, ncol = 2)
 ygk(P, Q)
 ygk(P, Q, min_scale=TRUE)
 }

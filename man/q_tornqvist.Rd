@@ -17,3 +17,8 @@ an m x m matrix of country pair comparisons.
 \description{
 The Törnqvist quantity index is an alternative to the Fisher ideal index.
 }
+\examples{
+Pt <- matrix(1:6, ncol = 2)
+Qt <- matrix(2:7, ncol = 2)
+q_tornqvist(Pt,Qt)
+}

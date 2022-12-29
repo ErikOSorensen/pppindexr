@@ -19,6 +19,6 @@ EKS quantity index
 }
 \examples{
 P <- matrix(1:6, ncol = 2)
-Q <- matrix(2:7, ncol = n)
+Q <- matrix(2:7, ncol = 2)
 eks(P, Q)
 }

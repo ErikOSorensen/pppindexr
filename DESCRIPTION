@@ -6,8 +6,8 @@ Authors@R:
            comment = c(ORCID = "0000-0002-7155-4188"))
 Description: Calculate the most popular ways to compare real incomes across 
   countries, the Geary-Khamis index (real income at international prices, 
-  including the reference price vector), the Elteto Koves and Szulc (EKS) 
-  index, and the multilateral translog price indexes by Caves, Christensen,
+  including the reference price vector), the Eltetö, Köves and Szulc index 
+  (EKS), and the multilateral translog price indexes by Caves, Christensen,
   and Diewert (CCD).
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -18,3 +18,6 @@ Suggests:
 Config/testthat/edition: 3
 Imports: 
     assertthat
+Depends: 
+    R (>= 2.10)
+LazyData: true

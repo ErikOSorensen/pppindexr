@@ -19,3 +19,8 @@ The Fisher ideal index takes the geometric mean of the
 Paasche and the Laspeyre indices.
 If there are m countries and n goods, the data are (m x n) matrices.
 }
+\examples{
+Pt <- matrix(1:6, ncol = 2)
+Qt <- matrix(2:7, ncol = 2)
+q_fisher(Pt,Qt)
+}

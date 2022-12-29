@@ -7,7 +7,7 @@
 #'
 #' @examples
 #' P <- matrix(1:6, ncol = 2)
-#' Q <- matrix(2:7, ncol = n)
+#' Q <- matrix(2:7, ncol = 2)
 #' eks(P, Q)
 eks <- function(P, Q) {
   P <- as.matrix(P)
@@ -32,7 +32,7 @@ eks <- function(P, Q) {
 #'
 #' @examples
 #' P <- matrix(1:6, ncol = 2)
-#' Q <- matrix(2:7, ncol = n)
+#' Q <- matrix(2:7, ncol = 2)
 #' ccd(P, Q)
 ccd <- function(P, Q) {
   P <- as.matrix(P)
@@ -72,7 +72,7 @@ ccd <- function(P, Q) {
 #'
 #' @examples
 #' P <- matrix(1:6, ncol = 2)
-#' Q <- matrix(2:7, ncol = n)
+#' Q <- matrix(2:7, ncol = 2)
 #' gk(P, Q)
 #'
 gk <- function(P, Q, pop = NULL) {
@@ -116,7 +116,7 @@ gk <- function(P, Q, pop = NULL) {
 #'
 #' @examples
 #' P <- matrix(1:6, ncol = 2)
-#' Q <- matrix(2:7, ncol = n)
+#' Q <- matrix(2:7, ncol = 2)
 #' ygk(P, Q)
 #' ygk(P, Q, min_scale=TRUE)
 ygk <- function(P, Q, pop = NULL, min_scale=FALSE) {
@@ -143,7 +143,7 @@ ygk <- function(P, Q, pop = NULL, min_scale=FALSE) {
 #'
 #' @examples
 #' P <- matrix(1:6, ncol = 2)
-#' Q <- matrix(2:7, ncol = n)
+#' Q <- matrix(2:7, ncol = 2)
 #' pgk(P, Q)
 pgk <- function(P, Q, pop = NULL) {
   gk(P, Q, pop = pop)$pi
