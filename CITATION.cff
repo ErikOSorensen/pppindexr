@@ -11,7 +11,7 @@ title: 'pppindexr: Price and Quantity Indices for International Comparisons'
 version: 0.0.0.9000
 abstract: Calculate the most popular ways to compare real incomes across countries,
   the Geary-Khamis index (real income at international prices, including the reference
-  price vector), the Elteto Koves and Szulc (EKS) index, and the multilateral translog
+  price vector), the Eltetö, Köves and Szulc index (EKS), and the multilateral translog
   price indexes by Caves, Christensen, and Diewert (CCD).
 authors:
 - family-names: Sørensen
@@ -46,3 +46,15 @@ references:
     given-names: Hadley
     email: hadley@rstudio.com
   year: '2022'
+- type: software
+  title: 'R: A Language and Environment for Statistical Computing'
+  notes: Depends
+  url: https://www.R-project.org/
+  authors:
+  - name: R Core Team
+  location:
+    name: Vienna, Austria
+  year: '2022'
+  institution:
+    name: R Foundation for Statistical Computing
+  version: '>= 2.10'
